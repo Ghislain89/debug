@@ -4,9 +4,9 @@ test('App loads and nav works', async ({ page }) => {
     await page.goto('/blog');
     // await page.setViewportSize({ width: 2000, height: 1000 });
     //
-    const nav = page.getByRole('navigation');
-    const blogLink = nav.getByText('Blog');
-    // const blogLink = nav.getByRole('link', { name: /blog/i });
+    //const nav = page.getByRole('navigation');
+    //const blogLink = nav.getByText('Blog');
+    const blogLink = page.getByRole('link', { name: /blog/i });
     await blogLink.scrollIntoViewIfNeeded();
     await blogLink.click();
 
