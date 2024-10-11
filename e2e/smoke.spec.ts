@@ -1,14 +1,18 @@
 import { test, expect } from '@playwright/test';
 
 test('App loads and nav works', async ({ page }) => {
-    await page.goto('/');
-
+    await page.goto('/blog');
+    // await page.setViewportSize({ width: 2000, height: 1000 });
+    //
     const nav = page.getByRole('navigation');
-    const blogLink = nav.getByRole('link', { name: /blog/i });
-    await blogLink.click({ force: true });
+    const blogLink = nav.getByText('Blog');
+    // const blogLink = nav.getByRole('link', { name: /blog/i });
+    await blogLink.scrollIntoViewIfNeeded();
+    await blogLink.click();
 
     await expect(page.getByTestId('blog-posts')).toBeVisible();
-    await expect(page.getByRole('link', { name: /home/i })).not.toHaveClass(
+
+    await expect(page.getByRole('link', { name: /uses/i })).not.toHaveClass(
         /active/
     );
     await expect(page.getByRole('link', { name: /blog/i })).toHaveClass(

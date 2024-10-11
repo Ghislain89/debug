@@ -41,7 +41,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
                 padding: 1em 0;
                 /* text-align: center; */
                 /* line-height: 1; */
-                font-size: 0.8em;
+                font-size: 0.65em;
             }
             .title h1 {
                 margin: 0 0 0.1em 0;
@@ -67,17 +67,17 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
         <main>
             <article>
                 <div class="prose">
-                    {
-                        tags && (
-                            <ul>
-                                {tags.map((tag) => (
-                                    <li>
-                                        <button>{tag}</button>
-                                    </li>
-                                ))}
-                            </ul>
-                        )
-                    }
+                    <!-- { -->
+                    <!--     tags && ( -->
+                    <!--         <ul> -->
+                    <!--             {tags.map((tag) => ( -->
+                    <!--                 <li> -->
+                    <!--                     <button>{tag}</button> -->
+                    <!--                 </li> -->
+                    <!--             ))} -->
+                    <!--         </ul> -->
+                    <!--     ) -->
+                    <!-- } -->
                     <div class="title">
                         <h1 test-id="blogTitle">{title}</h1>
                         <FormattedDate date={pubDate} />

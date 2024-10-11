@@ -17,6 +17,14 @@ jobs:
         run: npm install
       - name: Build Astro site
         run: npm run build
+      - name: bash
+        run: |
+          ls -la
+      - name: Upload site output
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
   cypress-run:
     needs: build
     runs-on: ubuntu-22.04
@@ -35,6 +43,7 @@ jobs:
         # with:
         # path: . # The root location of your Astro project inside the repository. (optional)
   playwright-run:
+    needs: build
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -46,6 +55,14 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Download a single artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: dist
+        path: dist/
+    - name: bash
+      run: |
+        ls -la
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4

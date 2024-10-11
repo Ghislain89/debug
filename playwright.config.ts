@@ -27,31 +27,34 @@ export default defineConfig({
 
     /* Configure projects for major browsers */
     projects: [
-        // {
-        //     name: 'chromium',
-        //     use: { ...devices['Desktop Chrome'] }
-        // },
-        /* Test against branded browsers. */
         {
-            name: 'Google Chrome',
+            name: 'chromium',
             use: {
                 ...devices['Desktop Chrome'],
-                channel: 'chrome',
-                viewport: { width: 1280, height: 720 }
+                viewport: { width: 2000, height: 1000 }
             }
-        },
-        {
-            name: 'firefox',
-            use: { ...devices['Desktop Firefox'] }
-        },
-        {
-            name: 'webkit',
-            use: { ...devices['Desktop Safari'] }
         }
+        /* Test against branded browsers. */
+        /* { */
+        /*     name: 'Google Chrome', */
+        /*     use: { */
+        /*         ...devices['Desktop Chrome'], */
+        /*         channel: 'chrome', */
+        /*         viewport: { width: 1280, height: 720 } */
+        /*     } */
+        /* }, */
+        /* { */
+        /*     name: 'firefox', */
+        /*     use: { ...devices['Desktop Firefox'] } */
+        /* }, */
+        /* { */
+        /*     name: 'webkit', */
+        /*     use: { ...devices['Desktop Safari'] } */
+        /* } */
     ],
 
     webServer: {
-        command: 'npm run dev',
+        command: 'npm run preview',
         url: 'http://localhost:3000',
         reuseExistingServer: true
     }

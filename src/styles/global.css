@@ -50,20 +50,7 @@ main {
     margin: auto;
     padding: 2em 1em;
 }
-/* h1, */
-/* h2, */
-/* h3 { */
-/*     margin: 80 0 40 0; */
-/*     color: rgb(var(--black)); */
-/*     line-height: 1.2; */
-/* } */
-/* h4, */
-/* h5, */
-/* h6 { */
-/*     margin: 0 0 0.5rem 0; */
-/*     color: rgb(var(--black)); */
-/*     line-height: 1.2; */
-/* } */
+
 h1 {
     font-size: 3.052em;
 }
@@ -140,6 +127,43 @@ hr {
         padding: 1em;
     }
 }
+li {
+    margin-bottom: 0.5em;
+    list-style-type: none;
+}
+li a {
+    /* display: inline-block; */
+    text-decoration: none;
+    padding: 0em 2em;
+}
+a.active {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transition: transform 0.08s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+}
+
+.hover-underline-animation.left::after {
+    transform-origin: bottom right;
+}
 
 .sr-only {
     border: 0;
@@ -158,26 +182,3 @@ hr {
     /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
     white-space: nowrap;
 }
-
-/* a.hover-underline-animation { */
-/*     display: inline-block; */
-/*     position: relative; */
-/* } */
-/**/
-/* a.hover-underline-animation::after { */
-/*     content: ''; */
-/*     position: absolute; */
-/*     width: 100%; */
-/*     transform: scaleX(0); */
-/*     height: 2px; */
-/*     bottom: 0; */
-/*     left: 0; */
-/*     background-color: #0087ca; */
-/*     transform-origin: bottom right; */
-/*     transition: transform 0.0002s; */
-/* } */
-/**/
-/* a.hover-underline-animation:hover::after { */
-/*     transform: scaleX(1); */
-/*     transform-origin: bottom left; */
-/* } */

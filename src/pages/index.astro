@@ -12,9 +12,65 @@ const posts = (await getCollection('blog')).sort(
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        a.hover-underline-animation {
+            display: inline-block;
+            position: relative;
+        }
+
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #0087ca;
+            transition: transform 0.08s ease-out;
+        }
+
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hover-underline-animation.left::after {
+            transform-origin: bottom right;
+        }
+
+        .mr-8 {
+            margin-right: 2rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+        .grey_rounded_div {
+            display: block;
+            border-radius: 3px;
+            box-shadow: var(--box-shadow);
+            background-color: #f0f0f0;
+            margin-right: 18rem;
+            margin-left: 18rem;
+            bottom: 0;
+            left: 1;
+            right: 0;
+            z-index: 10;
+            border-radius: 0.5rem;
+        }
+    </style>
+
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
     <body>
         <Header />
         <main>
@@ -26,27 +82,30 @@ const posts = (await getCollection('blog')).sort(
 
                 <br /><br />
 
-                If you want to get in contact, feel free to reach out via my <contact
-                    page
-                >
-                    <hr />
-
-                    <p>Here's my latest Blog Post</p>
-                    <a href={`/blog/${posts[posts.length - 1].slug}`}>
-                        <img
-                            width={720}
-                            height={360}
-                            src={posts[posts.length - 1].data.heroImage}
-                            alt=""
-                        />
-
-                        <br />
-
-                        {posts[posts.length - 1].data.title}
-                    </a>
-                </contact>
-                <Footer />
+                If you want to get in contact, feel free to reach out via
+                LinkedIn or Twitter.
             </p>
         </main>
+        <span class="mr-8 text-xl font-medium">
+            <div class="grey_rounded_div">
+                Featured Blog Post: <br />
+                <a
+                    class="hover-underline-animation"
+                    href={`/blog/${posts[posts.length - 1].slug}`}
+                >
+                    <img
+                        width={360}
+                        height={180}
+                        src={posts[posts.length - 1].data.heroImage}
+                        alt=""
+                    />
+
+                    <br />
+
+                    {posts[posts.length - 1].data.title}
+                </a>
+            </div>
+        </span>
+        <Footer />
     </body>
 </html>

@@ -6,7 +6,7 @@
     "dev": "astro dev --port 3000",
     "start": "astro dev --port 3000",
     "build": "astro check && astro build",
-    "preview": "astro preview",
+    "preview": "astro preview --port 3000",
     "astro": "astro",
     "cypress:run": "npx cypress run --e2e",
     "cypress:open": "npx cypress open --e2e --browser chrome"
