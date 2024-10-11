@@ -6,7 +6,8 @@ test('App loads and nav works', async ({ page }) => {
     //
     //const nav = page.getByRole('navigation');
     //const blogLink = nav.getByText('Blog');
-    const blogLink = page.getByRole('link', { name: /blog/i });
+    const blogLink = page.locator("[test-id='blogs']");
+    // const blogLink = page.getByRole('link', { name: /blog/i });
     await blogLink.click();
 
     await expect(page.getByTestId('blog-posts')).toBeVisible();
