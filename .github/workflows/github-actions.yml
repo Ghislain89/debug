@@ -65,6 +65,8 @@ jobs:
         ls -la
     - name: Run Playwright tests
       run: npx playwright test
+      env: 
+        PWDEBUG: 1
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
